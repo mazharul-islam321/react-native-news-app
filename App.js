@@ -1,6 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import { StyleSheet, View, ImageBackground } from "react-native";
+import { NativeRouter, Route, Routes } from "react-router-native";
+import LogIn from "./components/authentication/LogIn/LogIn";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 
@@ -11,8 +13,13 @@ export default function App() {
                 source={require("./assets/backgroundImage.jpg")}
                 style={styles.backgroundSize}
             >
-                <Header></Header>
-                <Home></Home>
+                <NativeRouter>
+                    <Header></Header>
+                    <Routes>
+                        <Route path="/" element={<Home></Home>}></Route>
+                        <Route path="/signin" element={<LogIn></LogIn>}></Route>
+                    </Routes>
+                </NativeRouter>
             </ImageBackground>
             <StatusBar style="auto" />
         </View>

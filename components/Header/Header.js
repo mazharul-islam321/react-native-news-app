@@ -1,16 +1,22 @@
 import React from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Link } from "react-router-native";
 
 export default function Header() {
     return (
         <View style={styles.navbarStyle}>
             <View style={styles.navbarStylein}>
-                <Text style={styles.icon}>NEWS</Text>
+                <Link to="/">
+                    <Text style={styles.icon}>NEWS</Text>
+                </Link>
                 <TextInput
                     placeholder="search your country"
                     style={styles.headerSearch}
                 ></TextInput>
-                <Text>Sign In</Text>
+                <Link to="/signin">
+                    <Text>Sign In</Text>
+                </Link>
+
                 {/* <Text>SignOut</Text> */}
             </View>
         </View>

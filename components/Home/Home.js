@@ -16,15 +16,23 @@ export default function Home() {
                 showsVerticalScrollIndicator={false}
                 data={news}
                 renderItem={({ item }) => (
-                    <View key={item?.source?.id} style={styles.section}>
-                        <Text>{item?.title}</Text>
+                    <View style={styles.section}>
+                        <Text style={styles.headerColor}>{item?.title}</Text>
                         <Image
                             source={{ uri: `${item?.urlToImage}` }}
                             style={{ width: "100%", height: 200 }}
                         />
-                        <Text>{item?.author}</Text>
+                        <Text style={styles.auther}>
+                            Auther: {item?.author}
+                        </Text>
+                        <Text style={styles.time}>{item?.publishedAt}</Text>
+                        <Text style={styles.description}>
+                            {item?.description}
+                        </Text>
+                        <Text style={styles.content}>{item?.content}</Text>
                     </View>
                 )}
+                keyExtractor={(item, index) => `${item?.source?.id}` + index}
             ></FlatList>
         </View>
     );
@@ -32,7 +40,28 @@ export default function Home() {
 
 const styles = StyleSheet.create({
     section: {
-        borderBottomWidth: 10,
-        borderBottomColor: "gray",
+        borderTopWidth: 10,
+        borderTopColor: "gray",
+        paddingLeft: 10,
+        paddingRight: 10,
+    },
+    headerColor: {
+        fontSize: 16,
+        paddingTop: 10,
+        paddingBottom: 10,
+        fontWeight: "bold",
+    },
+    auther: {
+        fontWeight: "bold",
+    },
+    time: {
+        paddingTop: 4,
+    },
+    description: {
+        paddingTop: 4,
+        paddingBottom: 4,
+    },
+    content: {
+        paddingBottom: 5,
     },
 });
