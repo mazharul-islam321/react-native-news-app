@@ -3,6 +3,7 @@ import React from "react";
 import { StyleSheet, View, ImageBackground } from "react-native";
 import { NativeRouter, Route, Routes } from "react-router-native";
 import LogIn from "./components/authentication/LogIn/LogIn";
+import SignUp from "./components/authentication/SignUp/SignUp";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 
@@ -18,6 +19,10 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={<Home></Home>}></Route>
                         <Route path="/signin" element={<LogIn></LogIn>}></Route>
+                        <Route
+                            path="/signup"
+                            element={<SignUp></SignUp>}
+                        ></Route>
                     </Routes>
                 </NativeRouter>
             </ImageBackground>
